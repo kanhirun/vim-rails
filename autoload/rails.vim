@@ -4536,8 +4536,7 @@ let s:default_projections = {
       \    "template": [
       \      "class {camelcase|capitalize|colons}Controller < ApplicationController",
       \      "end"
-      \    ],
-      \    "type": "controller"
+      \    ]
       \  },
       \  "app/controllers/concerns/*.rb": {
       \    "affinity": "controller",
@@ -4545,38 +4544,32 @@ let s:default_projections = {
       \      "module {camelcase|capitalize|colons}",
       \      "\tinclude ActiveSupport::Concern",
       \      "end"
-      \    ],
-      \    "type": "controller"
+      \    ]
       \  },
       \  "app/helpers/*_helper.rb": {
       \    "affinity": "controller",
-      \    "template": ["module {camelcase|capitalize|colons}Helper", "end"],
-      \    "type": "helper"
+      \    "template": ["module {camelcase|capitalize|colons}Helper", "end"]
       \  },
       \  "app/jobs/*_job.rb": {
-      \    "template": ["class {camelcase|capitalize|colons}Job < ActiveJob::Base", "end"],
-      \    "type": "job"
+      \    "template": ["class {camelcase|capitalize|colons}Job < ActiveJob::Base", "end"]
       \  },
       \  "app/mailers/*.rb": {
       \    "affinity": "controller",
-      \    "template": ["class {camelcase|capitalize|colons} < ActionMailer::Base", "end"],
-      \    "type": "mailer"
+      \    "template": ["class {camelcase|capitalize|colons} < ActionMailer::Base", "end"]
       \  },
       \  "app/models/*.rb": {
       \    "affinity": "model",
-      \    "template": ["class {camelcase|capitalize|colons}", "end"],
-      \    "type": "model"
+      \    "template": ["class {camelcase|capitalize|colons}", "end"]
       \  },
       \  "config/application.rb": {"alternate": "config/routes.rb"},
       \  "config/environment.rb": {"alternate": "config/routes.rb"},
       \  "config/environments/*.rb": {
-      \    "alternate": ["config/application.rb", "config/environment.rb"],
-      \    "type": "environment"
+      \    "alternate": ["config/application.rb", "config/environment.rb"]
       \  },
       \  "config/initializers/*.rb": {"type": "initializer"},
       \  "config/routes.rb": {
       \    "alternate": ["config/application.rb", "config/environment.rb"],
-      \    "type": "initializer"
+      \    "type": "routes"
       \  },
       \  "gems.rb": {"alternate": "gems.locked", "type": "lib"},
       \  "gems.locked": {"alternate": "gems.rb"},
@@ -4588,7 +4581,7 @@ let s:has_projections = {
       \  "cucumber": {
       \    "features/*.feature": {
       \      "template": ["Feature: {underscore|capitalize|blank}"],
-      \      "type": "integration test"
+      \      "type": "feature"
       \    },
       \    "features/support/env.rb": {"type": "integration test"}
       \  },
@@ -4603,7 +4596,7 @@ let s:has_projections = {
       \        "describe {camelcase|capitalize|colons} do",
       \        "end"
       \      ],
-      \      "type": "functional test"
+      \      "type": "controller"
       \    },
       \    "spec/features/*_spec.rb": {
       \      "template": [
@@ -4612,7 +4605,7 @@ let s:has_projections = {
       \        "describe \"{underscore|capitalize|blank}\" do",
       \        "end"
       \      ],
-      \      "type": "integration test"
+      \      "type": "feature"
       \    },
       \    "spec/helpers/*_spec.rb": {
       \      "template": [
@@ -4621,7 +4614,7 @@ let s:has_projections = {
       \        "describe {camelcase|capitalize|colons} do",
       \        "end"
       \      ],
-      \      "type": "unit test"
+      \      "type": "helper"
       \    },
       \    "spec/integration/*_spec.rb": {
       \      "template": [
@@ -4630,7 +4623,7 @@ let s:has_projections = {
       \        "describe \"{underscore|capitalize|blank}\" do",
       \        "end"
       \      ],
-      \      "type": "integration test"
+      \      "type": "integration"
       \    },
       \    "spec/lib/*_spec.rb": {"alternate": "lib/{}.rb"},
       \    "spec/mailers/*_spec.rb": {
@@ -4641,7 +4634,7 @@ let s:has_projections = {
       \        "describe {camelcase|capitalize|colons} do",
       \        "end"
       \      ],
-      \      "type": "functional test"
+      \      "type": "mailer"
       \    },
       \    "spec/models/*_spec.rb": {
       \      "affinity": "model",
@@ -4651,7 +4644,7 @@ let s:has_projections = {
       \        "describe {camelcase|capitalize|colons} do",
       \        "end"
       \      ],
-      \      "type": "unit test"
+      \      "type": "model"
       \    },
       \    "spec/rails_helper.rb": {"type": "integration test"},
       \    "spec/requests/*_spec.rb": {
@@ -4661,7 +4654,7 @@ let s:has_projections = {
       \        "describe \"{underscore|capitalize|blank}\" do",
       \        "end"
       \      ],
-      \      "type": "integration test"
+      \      "type": "request"
       \    },
       \    "spec/spec_helper.rb": {"type": "integration test"}
       \  },
@@ -4684,7 +4677,7 @@ let s:has_projections = {
       \        "class {camelcase|capitalize|colons}Test < ActionController::TestCase",
       \        "end"
       \      ],
-      \      "type": "functional test"
+      \      "type": "functional"
       \    },
       \    "test/helpers/*_test.rb": {
       \      "template": [
@@ -4693,7 +4686,7 @@ let s:has_projections = {
       \        "class {camelcase|capitalize|colons}Test < ActionView::TestCase",
       \        "end"
       \      ],
-      \      "type": "unit test"
+      \      "type": "helper"
       \    },
       \    "test/integration/*_test.rb": {
       \      "template": [
@@ -4702,7 +4695,7 @@ let s:has_projections = {
       \        "class {camelcase|capitalize|colons}Test < ActionDispatch::IntegrationTest",
       \        "end"
       \      ],
-      \      "type": "integration test"
+      \      "type": "integration"
       \    },
       \    "test/lib/*_test.rb": {"alternate": "lib/{}.rb"},
       \    "test/mailers/*_test.rb": {
@@ -4713,7 +4706,7 @@ let s:has_projections = {
       \        "class {camelcase|capitalize|colons}Test < ActionMailer::TestCase",
       \        "end"
       \      ],
-      \      "type": "functional test"
+      \      "type": "mailer"
       \    },
       \    "test/models/*_test.rb": {
       \      "affinity": "model",
@@ -4735,7 +4728,7 @@ let s:has_projections = {
       \        "class {camelcase|capitalize|colons}Test < ActiveSupport::TestCase",
       \        "end"
       \      ],
-      \      "type": "unit test"
+      \      "type": "unit"
       \    },
       \    "test/unit/helpers/*_helper_test.rb": {
       \      "affinity": "controller",
